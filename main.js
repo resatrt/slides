@@ -10,11 +10,11 @@ setInterval(()=>{
    n +=1
 },3000)
 
-function x(n){
-    if(n>3){
-        n = n%3
+function x(n){  
+    if(n>5){
+        n = n%5
         if(n===0){
-            n=3
+            n=5
         }
     }
     return n

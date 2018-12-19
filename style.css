@@ -7,8 +7,7 @@
     overflow: hidden;
 }
 .imges{
-    position: relative;
-    
+    position: relative;   
 }
 .imges >img{
 width: 100%;
