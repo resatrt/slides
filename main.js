@@ -1,14 +1,31 @@
 let n
 initialize()
 
-setInterval(()=>{
+let timeId=setInterval(()=>{
   makeLeave( getImage(n))
    .one('transitionend', (e)=>{
       makeEnter($(e.currentTarget)) 
    })
   makeCurrent(getImage(n+1))
    n +=1
-},3000)
+},2000)
+
+document.addEventListener('visibilitychange',function(){
+    if(this.visibilityState==='hidden'){ //document.hidden ===true也可以
+      window.clearInterval(timeId)
+    }else{
+        timeId=setInterval(()=>{
+            makeLeave( getImage(n))
+             .one('transitionend', (e)=>{
+                makeEnter($(e.currentTarget)) 
+             })
+            makeCurrent(getImage(n+1))
+             n +=1
+          },2000)
+    }
+})
+
+
 
 function x(n){  
     if(n>5){
